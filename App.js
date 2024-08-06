@@ -27,6 +27,8 @@
  * We don't need to write the polyfill, bable will take care of it.
  * Bable will clearing the console log.
  */
+import React from "react";
+import ReactDOM  from "react-dom/client";
 
 const heading = React.createElement(
     "h1",  // element name
