@@ -9,14 +9,14 @@
 <body>
     <!-- pure html -->
     <!-- <div id="root">
-        <h1>not rendered</h1>
+        <h1>Welcome to React app</h1>
     </div> -->
-
 
     <div id="root">
         <!-- react will override this -->
         <h1>UI not rendered</h1>
     </div>
+    
         <!--loading the ui using js -->
     <!-- <script>
         const header = document.createElement('h1');
@@ -26,6 +26,7 @@
     </script> -->
 
     <!--loading the ui using react js -->
+    <!-- import the react library using react cdn -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
@@ -33,3 +34,17 @@
     <script src="./App.js"></script>
 </body>
 </html>
+
+<!-- BUNDLERS :vite, parcel and webpack these are the bundlers -->
+<!-- Bundler will minify your code, will remove console logs and will do lot of optimizations  -->
+
+<!--  If we want to upgrade to minor version use ^ -->
+<!--  If we want to upgrade to major version use ~ -->
+<!--  If we want the exact version just keep the exact version -->
+<!--  Node modules contains all installed packages code -->
+<!--  Nodemodules are kind of database for npm -->
+<!--  package.json and package-lock.json help us to generate nodemodules on our server -->
+<!--  for igniting the app run npx parcel index.html here npx means execute the parcel with entry point-->
+<!--  npx parcel build index.html (if we used build it will generate the production ready optimized code) -->
+<!--  dist folder contains the all minified code of entire files-->
+<!--  by passing the key to childs it will help to do Reconsolation -->
