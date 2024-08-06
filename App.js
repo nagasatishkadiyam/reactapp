@@ -30,6 +30,9 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
 
+// React element is nothing but javascript object
+// React.createElement => React Element - js object => html(dom)
+
 const heading = React.createElement(
     "h1",  // element name
     {id:"heading"}, // properties
@@ -123,5 +126,117 @@ const heading = React.createElement(
                     )
                 ]
             );
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(parentwithchildsiblings);    
+
+
+        // const root = ReactDOM.createRoot(document.getElementById("root"));
+        // root.render(parentwithchildsiblings);    
+
+    // creating the elements using JSX.
+    // JSX means javascript xml 
+    // JSX - is not HTML in JS.
+    // JSX - is HTML or XML like syntax.
+    // JS engine can understand only javascript, it doesn't understand the jsx.
+    // how JS engine is understaning the JSX? (jsx transpiled before it reaches to the js engine) 
+    // PARCLE has the BABEL , so BABEL is doing the conveWrtion.
+
+    // JSX example
+    //single line JSX.
+    // React element
+    const jsxheading = <h1 className="jsxheadinsg" id="jsxheadingid"> jsx heading</h1>
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(jsxheading);
+
+    //Mutiple line JSX.
+    // React element
+    const multilinejsx = (<h1 className="multilinejsx" id="multilinejsxid">
+        this is multi line jsx
+        </h1>);
+
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(multilinejsx);
+
+    // React Component (everything is a component in react)
+    // 1. Functional Component.
+    // 2. Class Component.
+    // Functional component is normal java script arrow function, which return a jsx or react element.
+    // functional component name starts with capital letter.(not mandatory but its good practice).
+    // we have to render the React component using following syntax <ComponentName /> <Heading />
+    
+    // functional componet with retun statement
+    const Heading = () => {
+        return <h1>its react functional component</h1>;
+    };
+
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(<Heading />);
+
+    // functional componet without retun statement.
+    const HeaderWithoutReturn = () => (
+    <h1>
+        Function component without return statement
+    </h1>
+    );
+    
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(<HeaderWithoutReturn />);
+
+    // we can write nested components.
+    // component composition means adding one componet insdie another component.
+    const ChildComponent = () => {
+        return <h1>Child component in container.</h1>;
+    }
+    const ContainerComponet = () => {
+        return (
+        <div id="container">
+            <ChildComponent></ChildComponent>
+            <h1>Parent componet</h1>
+        </div>
+        );
+    }
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(<ContainerComponet />);
+
+
+    // we can place a functional component inside the react element by using <ComponentName/>.
+    // we can place react elemet inside the functional component by using {}.
+    // we can write any javascript code inside the {} like { 2 + 60}. 
+    // we can print javascript variable like {number} and even console.log() also as {console.log()}.
+    // jsx will sanitize the javascipt inside the {}.
+    // if {} contains the malicious code, jsx will escape it.
+    // we can the react componet inside the {}  as like this {ChildComponent()} 
+
+     const element = (<div> 
+        {2 + 10}
+        <ChildComponent />
+        <ChildComponent></ChildComponent>
+        {ChildComponent()} 
+        <h1>react elements</h1>
+        </div>);
+
+    const element2 = (<div> 
+        {2 + 10} 
+        {element} 
+        {ChildComponent()}  
+        <h1>react element</h1>
+        </div>);
+
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(element2);
+
+    // react fucntional component
+    const TestComponent = () => {
+        return (<h1>TestComponent</h1>);
+    };
+    // react fucntional component
+    const TestComponent2 = () => {
+        return (
+            <div>
+            <TestComponent />
+            <h1> TestComponent 2</h1>
+            {TestComponent()}
+            </div>
+        );
+    };
+    
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<TestComponent2 />);
