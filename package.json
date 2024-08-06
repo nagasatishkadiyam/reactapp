@@ -1,0 +1,22 @@
+{
+  "name": "reactapp",
+  "version": "1.0.0",
+  "description": "this is react app done by satish",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satish-mobtexting/reactapp.git"
+  },
+  "author": "satish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satish-mobtexting/reactapp/issues"
+  },
+  "homepage": "https://github.com/satish-mobtexting/reactapp#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
