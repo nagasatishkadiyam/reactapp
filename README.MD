@@ -6,3 +6,10 @@
 - npm install will recreate the entire nodemodules (noneed to push the node modules into the github).
 - npm install react OR (npm i react) 
 - npm install react-dom OR (npm i react-dom)
+- npx parcel index.html (this command is used to generate the development build). 
+- npx parcel build index.html (if we used build it will generate the production ready optimized code)
+- npx means npm execute
+- npx parcel index.html means npm execute parcel package entry point is index.html
+- we can write the scripts for builds.
+- npm run start will generate the dev build
+- npm run build (you can write any word instead of build)  
