@@ -13,3 +13,17 @@
 - we can write the scripts for builds.
 - npm run start will generate the dev build
 - npm run build (you can write any word instead of build)  
+
+
+- here 2 types of import/export availabe.
+- 1. default export /import.  ( if file contains single componenet/varible better to use default export/import)
+    - Example
+    - default export Componentname/variablename;
+    - import Componentname/variablename from "path".
+
+- 2. named export/import.
+    - Example named export: ( if file contains Multiple componenets/varibles better to use named export /import)
+    - export const Componentname/variablename;
+    - import { Componentname/variablename } from "path".
+
+
