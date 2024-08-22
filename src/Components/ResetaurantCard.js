@@ -62,7 +62,7 @@ import { IMG_URL } from "../Utils/constants";
 
 const RestaurantCard = (props) => {
     const {restdata} = props;
-    const {name,cuisines, avgRatingString,costForTwo } = restdata.info;
+    const {name, cuisines, avgRatingString, costForTwo } = restdata.info;
     return (
         <div className="res-card">
         <div>
