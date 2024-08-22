@@ -49,6 +49,13 @@
 - react-router-dom is used to create the routes in the application.
 - we have to create the routes configuration by using the createBrowserRouter componet.
 - we have to provide the router configuration to RouterProvider compoent.
+- Outlet is filled by the component once its matched the given path. 
+
+
+- Routing.
+  - 2 types of routing availabel in web apps
+    - client side Routing(single page application)(client side routing won't do http request because its already loaded as single page)
+    - server side Routing(every request will go the server with http and get back to the browser)
 
 
 

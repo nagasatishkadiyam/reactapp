@@ -35,7 +35,7 @@ import Footer from "./src/Components/Footer";
 import About from "./src/Components/About";
 import Contact from "./src/Components/Contact";
 import Error from "./src/Components/Error";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // React element is nothing but javascript object
 // React.createElement => React Element - js object => html(dom)
@@ -275,7 +275,7 @@ const heading = React.createElement(
         return (
             <div className="app">
                 <Header />
-                <Body />
+                <Outlet />
                 <Footer />
             </div>
         );
@@ -288,15 +288,21 @@ const heading = React.createElement(
         {
             path:"/",
             element: <AppLayout></AppLayout>,
-            errorElement: <Error></Error>
-        },
-        {
-            path:"/about",
-            element: <About></About>
-        },
-        {
-            path:"/contact",
-            element:<Contact />
+            errorElement: <Error></Error>,
+            children:[
+                {
+                    path:"/",
+                    element:<Body />
+                },
+                {
+                    path:"/about",
+                    element: <About></About>
+                },
+                {
+                    path:"/contact",
+                    element:<Contact />
+                }
+            ]
         }
     ]);
 
