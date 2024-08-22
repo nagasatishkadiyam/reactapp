@@ -27,3 +27,19 @@
     - import { Componentname/variablename } from "path".
 
 
+- React Hooks
+    - (hooks are normal javascript functions given by facebook developers)
+    - these are most used hooks
+      - useState() (superpowerfull state variable in react).
+        - superpowerfull variable keeps the UI sync with the data.
+        - whenever a state variable is changed/updated react will rerender my component.
+
+      - useEffect()  
+
+- React uses reconcilation althogrithem also known as react fiber.
+- virtual dom means representation of actual dom.
+- react is fast becuase of rect fiber which means reconcilation algorithem will find out the   difference between the old dom object and new dom object then update the updated part only.
+
+
+
+
