@@ -32,6 +32,10 @@ import ReactDOM  from "react-dom/client";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
 import Footer from "./src/Components/Footer";
+import About from "./src/Components/About";
+import Contact from "./src/Components/Contact";
+import Error from "./src/Components/Error";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // React element is nothing but javascript object
 // React.createElement => React Element - js object => html(dom)
@@ -276,7 +280,29 @@ const heading = React.createElement(
             </div>
         );
     };
+    // const root = ReactDOM.createRoot(document.getElementById("root"));
+    // root.render(<AppLayout />);
+
+
+    const approuter = createBrowserRouter([
+        {
+            path:"/",
+            element: <AppLayout></AppLayout>,
+            errorElement: <Error></Error>
+        },
+        {
+            path:"/about",
+            element: <About></About>
+        },
+        {
+            path:"/contact",
+            element:<Contact />
+        }
+    ]);
+
+
     const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<AppLayout />);
+    root.render(<RouterProvider router={approuter}/>);
+    // we have to render the RouterProvider then routing will start work.
 
     

@@ -40,9 +40,15 @@
         - If no dependecy array useeffect will call on every render.
         - If dependency array is empty,then useeffect will call on only initial render (just once).
 
+      - If any function starts with use keyword then its a hook.
+
 - React uses reconcilation althogrithem also known as react fiber.
 - virtual dom means representation of actual dom.
 - react is fast becuase of rect fiber which means reconcilation algorithem will find out the   difference between the old dom object and new dom object then update the updated part only.
+
+- react-router-dom is used to create the routes in the application.
+- we have to create the routes configuration by using the createBrowserRouter componet.
+- we have to provide the router configuration to RouterProvider compoent.
 
 
 
