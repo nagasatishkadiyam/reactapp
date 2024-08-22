@@ -33,8 +33,12 @@
       - useState() (superpowerfull state variable in react).
         - superpowerfull variable keeps the UI sync with the data.
         - whenever a state variable is changed/updated react will rerender my component.
+        - usestate should be write inside the componet.
+        - do not add usestate inside the for loop or any conditions. 
 
       - useEffect()  
+        - If no dependecy array useeffect will call on every render.
+        - If dependency array is empty,then useeffect will call on only initial render (just once).
 
 - React uses reconcilation althogrithem also known as react fiber.
 - virtual dom means representation of actual dom.
