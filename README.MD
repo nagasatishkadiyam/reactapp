@@ -39,6 +39,8 @@
       - useEffect()  
         - If no dependecy array useeffect will call on every render.
         - If dependency array is empty,then useeffect will call on only initial render (just once).
+      - useParams() is used to get the query parameters from the url.
+        - useParams() is exported from react-router-dom.
 
       - If any function starts with use keyword then its a hook.
 

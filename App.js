@@ -36,6 +36,8 @@ import About from "./src/Components/About";
 import Contact from "./src/Components/Contact";
 import Error from "./src/Components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import RestaurantMenu from "./src/Components/RestaurantMenu";
+
 
 // React element is nothing but javascript object
 // React.createElement => React Element - js object => html(dom)
@@ -288,7 +290,6 @@ const heading = React.createElement(
         {
             path:"/",
             element: <AppLayout></AppLayout>,
-            errorElement: <Error></Error>,
             children:[
                 {
                     path:"/",
@@ -301,8 +302,13 @@ const heading = React.createElement(
                 {
                     path:"/contact",
                     element:<Contact />
+                },
+                {
+                    path:"/restaurant/:restid",
+                    element:<RestaurantMenu />
                 }
-            ]
+            ],
+            errorElement: <Error></Error>,
         }
     ]);
 

@@ -2,6 +2,7 @@
     import RestaurantCard from "./ResetaurantCard";
     import { useState,useEffect  } from "react";
     import Shimmer from "./Shimmer"
+    import { Link } from "react-router-dom";
 
     // resname="Meghana" cusines="Biriyani, south india, north inida" stars="4.1 stars" eta="30 min" 
     //  this all arguments will as props to componets.
@@ -103,7 +104,7 @@
                 {
 
                     filteredrestRestaurant?.map((restaurant) => {
-                        return (<RestaurantCard key={restaurant.info.id} restdata={restaurant}/>);
+                        return (<Link to={ "/restaurant/" + restaurant.info.id} key={restaurant.info.id}><RestaurantCard restdata={restaurant}/></Link>);
                     })
                 }
 
