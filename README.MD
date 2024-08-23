@@ -58,6 +58,12 @@
   - 2 types of routing availabel in web apps
     - client side Routing(single page application)(client side routing won't do http request because its already loaded as single page)
     - server side Routing(every request will go the server with http and get back to the browser)
+- functional component 
+  - functional component is nothing but a javascript fucntion which return the jsx.
+
+- Class component 
+  - class component is nothing but a javascript class which extends React.Component and it has  a render method which returns the jsx.
+
 
 
 

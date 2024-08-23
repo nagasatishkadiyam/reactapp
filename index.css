@@ -84,3 +84,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.about {
+    border: 5px solid green;
+    margin: 5px;
+    padding: 5px;
+}
