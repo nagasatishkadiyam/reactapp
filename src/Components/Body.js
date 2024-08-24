@@ -73,7 +73,7 @@
                     <div>
                         <button onClick={() => {
                             const filteredrestlist = listOfRestaurant?.filter((resta) => {
-                                return resta.info.avgRatingString > 4;
+                                return resta.info.avgRatingString > 4.5;
                             });
                             setFilteredrestRestaurant(filteredrestlist);
 

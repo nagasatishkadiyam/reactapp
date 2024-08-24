@@ -63,6 +63,7 @@
 
 - Class component 
   - class component is nothing but a javascript class which extends React.Component and it has  a render method which returns the jsx.
+  - class component constructor will execute first ===> then render will execute then ==> componentdidmount will execute. 
 
 
 
