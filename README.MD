@@ -63,7 +63,29 @@
 
 - Class component 
   - class component is nothing but a javascript class which extends React.Component and it has  a render method which returns the jsx.
-  - class component constructor will execute first ===> then render will execute then ==> componentdidmount will execute. 
+  - class component constructor will execute first ===> then render will execute then ==> componentdidmount will execute.
+
+  - Life cycle
+    - Mounting
+
+      - constructor 
+      - render
+      -  dummy html
+      - Component Did Mount
+        - API CALL
+        - this.setState (state variable is updated)
+
+    - updating
+      - render API data.
+      - Html with original data.
+      - ComponenDidUpdate
+    
+    - Unmounting
+      - console.log("component will unmount while component disapearing time 
+        (while changing to different page)");
+      
+    
+
 
 
 
