@@ -3,6 +3,7 @@
     import { useState,useEffect  } from "react";
     import Shimmer from "./Shimmer"
     import { Link } from "react-router-dom";
+    import useOnlineStatus from "../Utils/useOnlineStatus";
 
     // resname="Meghana" cusines="Biriyani, south india, north inida" stars="4.1 stars" eta="30 min" 
     //  this all arguments will as props to componets.
@@ -51,8 +52,13 @@
         //     );
         // }
 
-        // writing the aboe code with ternary operator.
+        // using custom hook to check the internet status.
+        const onlinestatus = useOnlineStatus();
+        if (onlinestatus === false) {
+            return <h1>you are offline, please check the internet.</h1>;
+        }
 
+        // writing the above code with ternary operator.
         return listOfRestaurant?.length === 0 ? <Shimmer></Shimmer> : (
             <div className="body">
                 <div className="filter">

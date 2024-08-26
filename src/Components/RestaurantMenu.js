@@ -6,7 +6,7 @@ import useRestaurantMenu from "../Utils/useRestaurantMenu";
 const ResetaurantMenu = () => {
     const {restid} = useParams();
 
-    // custom hook to fetch the data and return to component.
+    // Custom hook to fetch the data and return to component.
     restInfo = useRestaurantMenu(restid);
 
     // converting as a custom hook(useResetaurantMenu)
