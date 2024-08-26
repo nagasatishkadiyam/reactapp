@@ -20,6 +20,11 @@
 
         useEffect(() => {
             fetchData();
+
+            // unmounting stage, (it will be called when leaving the current page)
+            return () => {
+                // console.log('unmounting stage');
+            };
         },[]);
 
         fetchData = async () => {

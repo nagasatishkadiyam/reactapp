@@ -26,11 +26,14 @@ class UserClass extends Component
         });
     }
 
-    componentDidUpdate() {
-        // console.log('component did update will be called after render in the updating stage');
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.count !== prevState.count ||  this.state.count2 !== prevState.count2) {
+            // console.log('component did update will be called after render in the updating stage');
+        }
     }
 
     componentWillUnmount(){
+        // this will be called when are leaving the cuerrent page.
         // console.log("componentwillunmount will be called as soon as you going to different page(while changing to different menu)");
     }
 
