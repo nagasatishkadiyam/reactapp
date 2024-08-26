@@ -27,7 +27,7 @@
  * We don't need to write the polyfill, bable will take care of it.
  * Bable will clearing the console log.
  */
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM  from "react-dom/client";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
@@ -37,6 +37,17 @@ import Contact from "./src/Components/Contact";
 import Error from "./src/Components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
+import Shimmer from "./src/Components/Shimmer";
+// import Grocery from "./src/Components/Grocery";
+
+// ondemand loading
+// chuncking
+// lazy loading
+// dynamic bundling
+// code spliting
+// dynamic import
+const Grocery = lazy(() => import("./src/Components/Grocery"));
+
 
 
 // React element is nothing but javascript object
@@ -293,19 +304,24 @@ const heading = React.createElement(
             children:[
                 {
                     path:"/",
-                    element:<Body />
+                    element:<Body />,
                 },
                 {
                     path:"/about",
-                    element: <About></About>
+                    element: <About></About>,
                 },
                 {
                     path:"/contact",
-                    element:<Contact />
+                    element:<Contact />,
+                },
+                {
+                    path:"/grocery",
+                    // element: <Grocery></Grocery>,
+                    element:(<Suspense fallback={<h1>loading ... </h1>}><Grocery /></Suspense>),
                 },
                 {
                     path:"/restaurant/:restid",
-                    element:<RestaurantMenu />
+                    element:<RestaurantMenu />,
                 }
             ],
             errorElement: <Error></Error>,
