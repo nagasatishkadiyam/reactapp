@@ -83,6 +83,9 @@
     - Unmounting
       - console.log("component will unmount while component disapearing time 
         (while changing to different page)");
+
+    - custom hook is nothing but a javascript fucntion.
+      - if we used customhooks we can maintian, reuseable, testable the code easly.  
       
     
 

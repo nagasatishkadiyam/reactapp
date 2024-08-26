@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { IMG_URL } from "../Utils/constants";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../Utils/useRestaurantMenu";
 
 const ResetaurantMenu = () => {
-    const [restInfo, setRestInfo] = useState(null);
     const {restid} = useParams();
 
+    // custom hook to fetch the data and return to component.
+    restInfo = useRestaurantMenu(restid);
+
+    // converting as a custom hook(useResetaurantMenu)
+    /*
     useEffect(() => {
         fetchMenu();
 
@@ -16,18 +20,16 @@ const ResetaurantMenu = () => {
         const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=" + restid + "&catalog_qa=undefined&submitAction=ENTER");
         const json = await data.json();
         setRestInfo(json?.data);
-
-        // console.log(json?.data.cards[2]?.card?.card?.info);
-        // console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
     };
+    */
 
     if (restInfo === null ) {
         return <Shimmer></Shimmer>;
     }
 
-    const { id, name, city, areaName, costForTwoMessage, 
-        cuisines, avgRatingString, totalRatingsString
-        } = restInfo?.cards[2]?.card?.card?.info;
+    const {name, areaName, costForTwoMessage, cuisines, 
+        avgRatingString, totalRatingsString
+    } = restInfo?.cards[2]?.card?.card?.info;
 
     const {itemCards} = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
