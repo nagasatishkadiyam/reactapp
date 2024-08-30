@@ -11,19 +11,18 @@ import useOnlineStatus from "../Utils/useOnlineStatus";
         const online = useOnlineStatus();
 
         return (
-            <div className="header">
+            <div className="flex justify-between shadow-lg bg-pink-100 m-2">
                 <div className="logo">
-                <img className="logoimage"src={LOGO_IMG} alt="image not found" /> 
+                    <img className="w-56" src={LOGO_IMG} alt="image not found" /> 
                 </div>
-                <div>
-                    <p>online state : {online ? 'online' : 'offline'}</p>
-                </div>
-                <div className="nav-items">
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="contact">Contact Us</Link></li>
-                        <li><Link to="about">About Us</Link></li>
-                        <li>Cart</li>
+                <div className="nav-items flex items-center">
+                    <ul className="flex m-4 p-4">
+                        <li className="px-4">online state : {online ? 'online' : 'offline'}</li>
+                        <li className="px-4"><Link to="/">Home</Link></li>
+                        <li className="px-4"><Link to="contact">Contact Us</Link></li>
+                        <li className="px-4"><Link to="about">About Us</Link></li>
+                        <li className="px-4"><Link to="grocery">Grocery</Link></li>
+                        <li className="px-4">Cart</li>
                         <button className="login-button" onClick={ () => {
                             (btnvalue == 'Login') ? setbtnvalue("Logout") : setbtnvalue("Login");
                         }}>{btnvalue}</button>

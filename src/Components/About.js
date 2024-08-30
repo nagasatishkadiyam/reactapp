@@ -32,7 +32,6 @@ class About extends React.Component {
         console.log('parent render');
         return (
             <div>
-                <h1>About page</h1>
                 <UserClass name={"first"} city={"city from class component"} />
                 <UserClass name={"second"} city={"city from class component"} />
             </div>

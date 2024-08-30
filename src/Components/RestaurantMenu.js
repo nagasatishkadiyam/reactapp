@@ -34,29 +34,28 @@ const ResetaurantMenu = () => {
     const {itemCards} = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     return (
-        <div className="menu">
-            <h1>{name}</h1>
-
-            <div className="restaurant-info">
-                <p>{avgRatingString   + ' ' + '(' + totalRatingsString + ')'  +  '  ' + costForTwoMessage }</p>
+        <div className="menu m-2 p-4 ">
+            <div className="restaurant-info p-4 bg-gray-100">
+                <h1 className="p-2 font-bold">{name}</h1>
+                <p className="font-semibold">{avgRatingString   + ' ' + '(' + totalRatingsString + ')'  +  '  ' + costForTwoMessage }</p>
                 <p>{ cuisines.join(", ") }</p>
                 <div>
                     <p>Outlet : {areaName}</p> 
                 </div>
             </div>
 
-            <ul>
+            <ul className="">
                 {
                     itemCards?.map((itemCard) => {
                         return (
-                            <div className="restaurant-menu-item" key={itemCard.card.info.id}>
-                                <div>
-                                    <h3>{itemCard.card.info.name}</h3>
-                                    <h2>Rs {itemCard.card.info.price}</h2>
+                            <div className="restaurant-menu-item m-4 p-4 bg-gray-50 rounded-s-lg flex flex-1" key={itemCard.card.info.id}>
+                                <div className="">
+                                    <h3 className="font-bold">{itemCard.card.info.name}</h3>
+                                    <h2 className="font-semibold">Rs {itemCard.card.info.price}</h2>
                                     <p>{itemCard.card.info.description}</p>
                                 </div>
-                                <div>
-                                    <img className="res-logo"  alt="image not found" src={IMG_URL + itemCard.card.info.imageId }/>
+                                <div className="">
+                                    <img className="res-logo w-40"  alt="image not found" src={IMG_URL + itemCard.card.info.imageId }/>
                                 </div>
                             </div>
                         );

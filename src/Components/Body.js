@@ -61,16 +61,16 @@
         // writing the above code with ternary operator.
         return listOfRestaurant?.length === 0 ? <Shimmer></Shimmer> : (
             <div className="body">
-                <div className="filter">
-                    <div className="search">
-                        <input type="text" 
-                        value={searchText} 
-                        className="search-box"
-                        onChange={(e) => {
-                            setSearchText(e.target.value);
-                        }}
-                        />
-                        <button onClick={() => {
+                <div className="filter flex">
+                    <div className="search m-4 p-4">
+                        <input type="text"
+                         value={searchText} 
+                        className="search-box border border-solid border-gray m-4"
+                            onChange={(e) => {
+                                setSearchText(e.target.value);
+                            }
+                        }/>
+                        <button className="px-4 bg-gray-100 rounded-lg" onClick={() => {
 
                             const filteredList = listOfRestaurant?.filter((restaurant)=> {
                                 return restaurant.info.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase());
@@ -81,8 +81,8 @@
                             
                         }}> Search</button>
                     </div>
-                    <div>
-                        <button onClick={() => {
+                    <div className="search m-4 p-4 flex items-center">
+                        <button className="px-4 bg-gray-100 rounded-lg" onClick={() => {
                             const filteredrestlist = listOfRestaurant?.filter((resta) => {
                                 return resta.info.avgRatingString > 4.5;
                             });
@@ -91,7 +91,7 @@
                         }}>Top rated restaurants</button>
                     </div>
                 </div>
-                <div className="res-container">
+                <div className="res-container flex flex-wrap">
                     {/* we can pass props to component as like below  */}
                 {/* <RestaurantCard resname="Meghana" cusines="Biriyani, south india, north inida" stars="4.1 stars" eta="30 min"/> */}
                 {/* <RestaurantCard restdata={restobj}/> */}

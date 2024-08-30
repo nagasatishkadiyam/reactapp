@@ -49,15 +49,15 @@ class UserClass extends Component
         }
 
         return (
-            <div className="about">
-                <h1>{userInfo?.name}</h1>
-                <h2>{userInfo?.login}</h2>
+            <div className="about m-4 p-4 bg-gray-100">
+                <img className="w-25" alt="not found" src={userInfo?.avatar_url} ></img>
+                <h1 className="font-bold">{userInfo?.name}</h1>
+                <h2 className="font-bold">{userInfo?.login}</h2>
                 <h2>{userInfo?.location}</h2>
-                <img alt="not found" src={userInfo?.avatar_url} ></img>
 
                 <h2>count : {count}</h2>
                 <h2>count2 : {count2}</h2>
-                <button onClick={() => {
+                <button className="" onClick={() => {
                     this.setState({
                         count : count + 1,
                         count2 : count2 + 1,
