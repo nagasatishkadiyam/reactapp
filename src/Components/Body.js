@@ -1,5 +1,5 @@
     import restlist from "../Utils/mockdata";
-    import RestaurantCard from "./ResetaurantCard";
+    import RestaurantCard, {withPromotedLabel} from "./ResetaurantCard";
     import { useState,useEffect  } from "react";
     import Shimmer from "./Shimmer"
     import { Link } from "react-router-dom";
@@ -18,6 +18,8 @@
         const [listOfRestaurant, setListOfRestaurant] = useState([]);
         const [filteredrestRestaurant, setFilteredrestRestaurant] = useState([]);
         const [searchText, setSearchText] = useState(""); 
+        //calling higherorder function.
+        const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
         useEffect(() => {
             fetchData();
@@ -39,7 +41,7 @@
         setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredrestRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-        // setFilteredrestRestaurant(restlist);
+         // setFilteredrestRestaurant(restlist);
          // setListOfRestaurant(restlist);
         }
 
@@ -84,7 +86,7 @@
                     <div className="search m-4 p-4 flex items-center">
                         <button className="px-4 bg-gray-100 rounded-lg" onClick={() => {
                             const filteredrestlist = listOfRestaurant?.filter((resta) => {
-                                return resta.info.avgRatingString > 4.5;
+                                return resta.info.avgRatingString > 4;
                             });
                             setFilteredrestRestaurant(filteredrestlist);
 
@@ -115,8 +117,18 @@
                 {
 
                     filteredrestRestaurant?.map((restaurant) => {
-                        return (<Link to={ "/restaurant/" + restaurant.info.id} key={restaurant.info.id}><RestaurantCard restdata={restaurant}/></Link>);
+                        return (
+                        <Link to={ "/restaurant/" + restaurant.info.id} key={restaurant.info.id}>
+
+                            {/* If the restaurant is promoted then add the promoted label to it. */}
+                            
+                            {
+                                restaurant.info.promoted ? <RestaurantCardPromoted restdata={restaurant}/> : <RestaurantCard restdata={restaurant}/>
+                            }
+                            
+                        </Link>);
                     })
+
                 }
 
                 </div>

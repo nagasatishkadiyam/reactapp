@@ -86,6 +86,10 @@
 
     - custom hook is nothing but a javascript fucntion.
       - if we used customhooks we can maintian, reuseable, testable the code easly.  
+
+
+    - higher order components:
+      - higher order component is a function it takes a componet as an input and enhance it and return the enhanced component.
       
     
 

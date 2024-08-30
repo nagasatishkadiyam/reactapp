@@ -74,4 +74,21 @@ const RestaurantCard = (props) => {
     );
 };
 
+// write the higher order componet.
+// higher order component is a function it takes a componet (RestaurantCard) as an input,
+// and enhance (promoted label) it and return the enhanced component.
+
+export const withPromotedLabel = (RestaurantCard) => {
+
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute m-2 p-2 rounded-lg bg-black text-white">promoted</label>
+                <RestaurantCard {...props}></RestaurantCard>
+            </div>
+        );
+
+    }
+}
+
 export default RestaurantCard;

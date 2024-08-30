@@ -34,10 +34,10 @@ const ResetaurantMenu = () => {
     const {itemCards} = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
     return (
-        <div className="menu m-2 p-4 ">
-            <div className="restaurant-info p-4 bg-gray-100">
-                <h1 className="p-2 font-bold">{name}</h1>
-                <p className="font-semibold">{avgRatingString   + ' ' + '(' + totalRatingsString + ')'  +  '  ' + costForTwoMessage }</p>
+        <div className="text-center">
+            <div className="">
+                <h1 className="font-bold my-2">{name}</h1>
+                <p className="font-semibold text-lg">{avgRatingString   + ' ' + '(' + totalRatingsString + ')'  +  '  ' + costForTwoMessage }</p>
                 <p>{ cuisines.join(", ") }</p>
                 <div>
                     <p>Outlet : {areaName}</p> 
