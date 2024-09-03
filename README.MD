@@ -15,7 +15,7 @@
 - npm run build (you can write any word instead of build)  
 
 
-- here 2 types of import/export availabe.
+# here 2 types of import/export availabe.
 - 1. default export /import.  ( if file contains single componenet/varible better to use default export/import)
     - Example
     - default export Componentname/variablename;
@@ -27,7 +27,7 @@
     - import { Componentname/variablename } from "path".
 
 
-- React Hooks
+# React Hooks
     - (hooks are normal javascript functions given by facebook developers)
     - these are most used hooks
       - useState() (superpowerfull state variable in react).
@@ -54,7 +54,7 @@
 - Outlet is filled by the component once its matched the given path. 
 
 
-- Routing.
+# Routing.
   - 2 types of routing availabel in web apps
     - client side Routing(single page application)(client side routing won't do http request because its already loaded as single page)
     - server side Routing(every request will go the server with http and get back to the browser)
@@ -65,7 +65,7 @@
   - class component is nothing but a javascript class which extends React.Component and it has  a render method which returns the jsx.
   - class component constructor will execute first ===> then render will execute then ==> componentdidmount will execute.
 
-  - Life cycle
+  # Life cycle
     - Mounting
 
       - constructor 
@@ -95,15 +95,19 @@
       - Controling the child components state varibale from the parent coponent. 
       - Example accordian implemented.
 
-    - Props drilling.
+    # Props drilling.
      - sendign the data from one parent component to its child componets is called props drilling.
      - componetA is sending the data as the props CoponentB also sending the data to ComponentC  ComponetC is using the data.
      - this is called props drilling.
 
-     - React context.
+     # React context.
       - Its solves the Props drilling.
+
       - If you want to store/access the data inside entire application like logged in user details, we can use react context.
-      - Redux.
+      - If you want to store/access the data inside entire application like logged in user details, we can use reactcontext.
+      - If you want to update the context the we can update with context.Provider  
+
+      # Redux.
       - Redux primarly is used to handel the state of the our application.
       - If Redux used in our application, its easier to debug our application.
 
