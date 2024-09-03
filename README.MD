@@ -102,7 +102,8 @@
 
      - React context.
       - Its solves the Props drilling.
-      - If you want to store/access the data inside entire application like logged in user details, we can use react context.
+      - If you want to store/access the data inside entire application like logged in user details, we can use reactcontext.
+      - If you want to update the context the we can update with context.Provider  
        
       
     
