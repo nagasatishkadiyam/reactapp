@@ -1,7 +1,8 @@
 import { LOGO_IMG } from "../Utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import UserContext from "../Utils/UserContext";
 
 
     // header component 
@@ -9,6 +10,10 @@ import useOnlineStatus from "../Utils/useOnlineStatus";
 
         const [btnvalue, setbtnvalue] = useState("Login");
         const online = useOnlineStatus();
+
+        // useContext is a hook coming from the react.
+        // {loggedinUser} is object destructing.
+        const {loggedinUser} = useContext(UserContext);
 
         return (
             <div className="flex justify-between shadow-lg bg-pink-100 m-2">
@@ -26,6 +31,7 @@ import useOnlineStatus from "../Utils/useOnlineStatus";
                         <button className="login-button" onClick={ () => {
                             (btnvalue == 'Login') ? setbtnvalue("Logout") : setbtnvalue("Login");
                         }}>{btnvalue}</button>
+                        <li className="px-4 font-bold"> {loggedinUser} </li>
                     </ul>
                 </div>
             </div>

@@ -1,9 +1,10 @@
     import restlist from "../Utils/mockdata";
     import RestaurantCard, {withPromotedLabel} from "./ResetaurantCard";
-    import { useState,useEffect  } from "react";
+    import { useState,useEffect, useContext } from "react";
     import Shimmer from "./Shimmer"
     import { Link } from "react-router-dom";
     import useOnlineStatus from "../Utils/useOnlineStatus";
+    import UserContext from "../Utils/UserContext";
 
     // resname="Meghana" cusines="Biriyani, south india, north inida" stars="4.1 stars" eta="30 min" 
     //  this all arguments will as props to componets.
@@ -17,9 +18,12 @@
         // when ever the local state variable value is updated, react triggers a reconciliation cycle (react will rerender the component).
         const [listOfRestaurant, setListOfRestaurant] = useState([]);
         const [filteredrestRestaurant, setFilteredrestRestaurant] = useState([]);
-        const [searchText, setSearchText] = useState(""); 
+        const [searchText, setSearchText] = useState("");
         //calling higherorder function.
         const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
+        // usecontext to get the user data.  
+        const {loggedinUser, setUserName} = useContext(UserContext);
 
         useEffect(() => {
             fetchData();
@@ -67,7 +71,7 @@
                     <div className="search m-4 p-4">
                         <input type="text"
                          value={searchText} 
-                        className="search-box border border-solid border-gray m-4"
+                        className="border border-solid border-gray m-4"
                             onChange={(e) => {
                                 setSearchText(e.target.value);
                             }
@@ -83,7 +87,7 @@
                             
                         }}> Search</button>
                     </div>
-                    <div className="search m-4 p-4 flex items-center">
+                    <div className="m-4 p-4 flex items-center">
                         <button className="px-4 bg-gray-100 rounded-lg" onClick={() => {
                             const filteredrestlist = listOfRestaurant?.filter((resta) => {
                                 return resta.info.avgRatingString > 4;
@@ -91,6 +95,12 @@
                             setFilteredrestRestaurant(filteredrestlist);
 
                         }}>Top rated restaurants</button>
+                    </div>
+                    <div className="m-4 p-4 flex items-center">
+                        <label>Username</label>
+                        <input type="text" value={loggedinUser} className="border border-solid border-gray m-4 " onChange={(e) => {
+                            setUserName(e.target.value);                            
+                        }}></input>
                     </div>
                 </div>
                 <div className="res-container flex flex-wrap">

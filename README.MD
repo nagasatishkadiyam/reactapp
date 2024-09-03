@@ -94,6 +94,16 @@
     - Lifting up the state.
       - Controling the child components state varibale from the parent coponent. 
       - Example accordian implemented.
+
+    - Props drilling.
+     - sendign the data from one parent component to its child componets is called props drilling.
+     - componetA is sending the data as the props CoponentB also sending the data to ComponentC  ComponetC is using the data.
+     - this is called props drilling.
+
+     - React context.
+      - Its solves the Props drilling.
+      - If you want to store/access the data inside entire application like logged in user details, we can use react context.
+       
       
     
 

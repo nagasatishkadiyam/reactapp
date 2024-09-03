@@ -58,11 +58,16 @@
     //     );
     // };
 
+import { useContext } from "react";
 import { IMG_URL } from "../Utils/constants";
+import UserContext from "../Utils/UserContext";
 
 const RestaurantCard = (props) => {
     const {restdata} = props;
     const {name, cuisines, avgRatingString, costForTwo } = restdata.info;
+    //getting the data from context.
+    const {loggedinUser} = useContext(UserContext);
+
     return (
         <div className="res-card rounded-lg m-4 p-4 w-[200px] bg-gray-100 hover:bg-gray-300">
         <img className="res-logo rounded-lg" src={IMG_URL + restdata.info.cloudinaryImageId }/>
@@ -70,6 +75,7 @@ const RestaurantCard = (props) => {
         <h4>{cuisines.join(", ")}</h4>
         <h4>{avgRatingString} stars</h4>
         <h4>{costForTwo}</h4>
+        <h4 className="font-bold">User: {loggedinUser}</h4>
     </div>
     );
 };

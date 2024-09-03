@@ -27,7 +27,7 @@
  * We don't need to write the polyfill, bable will take care of it.
  * Bable will clearing the console log.
  */
-import React, {lazy, Suspense} from "react";
+import React, {Suspense, lazy, useEffect, useState} from "react";
 import ReactDOM  from "react-dom/client";
 import Header from "./src/Components/Header";
 import Body from "./src/Components/Body";
@@ -38,6 +38,7 @@ import Error from "./src/Components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Shimmer from "./src/Components/Shimmer";
+import UserContext from "./src/Utils/UserContext";
 // import Grocery from "./src/Components/Grocery";
 
 // ondemand loading
@@ -282,17 +283,39 @@ const heading = React.createElement(
      *  - contact
      */
 
-
     // body component
     const AppLayout = () => {
+
+        const [username, setUserName]= useState();
+
+        // authentication
+        useEffect(() => {
+            // make an api call with username and password.
+            const data = {
+                name: "satish",
+            }
+            setUserName(data.name);
+
+        }, []);
+        
+    // to pass the latest context information to our app, we have to use context provider shown below.
+    // nested context provider also will support.
+
         return (
-            <div className="app">
-                <Header />
-                <Outlet />
-                <Footer />
-            </div>
+            //usercontext provider to update/override the context data.
+            // if we want to update the context data from any where we have to pass the setUserName method.
+            <UserContext.Provider value={{loggedinUser: username, setUserName}}>
+                <div className="app">
+                    <UserContext.Provider value={{loggedinUser: "header satish"}}>
+                        <Header />
+                    </UserContext.Provider>
+                    <Outlet />
+                    <Footer />
+                </div>
+            </UserContext.Provider>
         );
     };
+
     // const root = ReactDOM.createRoot(document.getElementById("root"));
     // root.render(<AppLayout />);
 
@@ -316,8 +339,9 @@ const heading = React.createElement(
                 },
                 {
                     path:"/grocery",
-                    // element: <Grocery></Grocery>,
-                    element:(<Suspense fallback={<h1>loading ... </h1>}><Grocery /></Suspense>),
+                    element:<Suspense fallback={<Shimmer />}>
+                        <Grocery />
+                        </Suspense>,
                 },
                 {
                     path:"/restaurant/:restid",

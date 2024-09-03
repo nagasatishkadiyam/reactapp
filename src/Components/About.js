@@ -1,6 +1,7 @@
 import React from "react";
 import User from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../Utils/UserContext";
 
 // functional component.
 // const About = () => {
@@ -29,9 +30,16 @@ class About extends React.Component {
     }
 
     render(){
-        console.log('parent render');
+        // console.log('parent render');
         return (
             <div>
+                {/* displayingt he data from reactcontext */}
+                <UserContext.Consumer>
+                    {({loggedinUser}) => {
+                        return <h1>Logged in user : {loggedinUser}</h1>;
+                    }}
+                </UserContext.Consumer>
+                
                 <UserClass name={"first"} city={"city from class component"} />
                 <UserClass name={"second"} city={"city from class component"} />
             </div>
