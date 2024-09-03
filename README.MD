@@ -103,8 +103,31 @@
      - React context.
       - Its solves the Props drilling.
       - If you want to store/access the data inside entire application like logged in user details, we can use react context.
-       
-      
+      - Redux.
+      - Redux primarly is used to handel the state of the our application.
+      - If Redux used in our application, its easier to debug our application.
+
+      - Redux store is a big javascript object and kepts at centralized place.
+      - Any compoent can read/write the redux store data. 
+      - Redux store partitioned as multiple slices, so we can store different types of data in different slices.
+      - EX: card data, loged in user data, theme data(white or dark).
+
+
+      - when we click on the add button, it will dispatch an action and then this action will call function then this function will manuply the card slice in redux store.
+      - when we click on the add button, it will disapatch an action which calls the reducer function, which modifies/ updates the redux store cart slice.
+
+      - Wrting the data to redux store
+        - BUTTON CLICK ==> DISPATCH ACTION ==> FUNCTION ==> REDUX STORE SLICE 
+      - Reading the data from redux store.
+        - Header componet is subscribed to the store using a SELECTOR, so its automatically fetches the data in the Header.
+
+      # Redux toolkit
+       - install @reduxjs/toolkit and react-redux
+       - build our store.
+       - connect our store to our app.
+       - slice (cart slice)
+       - dispatch
+       - selector 
     
 
 
