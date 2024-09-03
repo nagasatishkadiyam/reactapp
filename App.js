@@ -39,7 +39,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./src/Components/RestaurantMenu";
 import Shimmer from "./src/Components/Shimmer";
 import UserContext from "./src/Utils/UserContext";
+import { Provider } from "react-redux";
+import AppStore from "./src/Utils/AppStore";
 // import Grocery from "./src/Components/Grocery";
+import Cart from "./src/Components/Cart";
 
 // ondemand loading
 // chuncking
@@ -302,8 +305,14 @@ const heading = React.createElement(
     // nested context provider also will support.
 
         return (
-            //usercontext provider to update/override the context data.
-            // if we want to update the context data from any where we have to pass the setUserName method.
+
+            // Providing the store to our app.
+            <Provider store={AppStore}>
+            {/*
+                //usercontext provider to update/override the context data.
+                // if we want to update the context data from any where we have to pass the setUserName method. 
+            */}
+            
             <UserContext.Provider value={{loggedinUser: username, setUserName}}>
                 <div className="app">
                     <UserContext.Provider value={{loggedinUser: "header satish"}}>
@@ -313,6 +322,7 @@ const heading = React.createElement(
                     <Footer />
                 </div>
             </UserContext.Provider>
+            </Provider>
         );
     };
 
@@ -339,13 +349,17 @@ const heading = React.createElement(
                 },
                 {
                     path:"/grocery",
-                    element:<Suspense fallback={<Shimmer />}>
+                    element:(<Suspense fallback={<Shimmer />}>
                         <Grocery />
-                        </Suspense>,
+                        </Suspense>),
                 },
                 {
                     path:"/restaurant/:restid",
                     element:<RestaurantMenu />,
+                },
+                {
+                    path:"/cart",
+                    element:<Cart />,
                 }
             ],
             errorElement: <Error></Error>,

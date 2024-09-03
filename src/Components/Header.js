@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import UserContext from "../Utils/UserContext";
+import { useSelector } from "react-redux";
 
 
     // header component 
@@ -10,6 +11,12 @@ import UserContext from "../Utils/UserContext";
 
         const [btnvalue, setbtnvalue] = useState("Login");
         const online = useOnlineStatus();
+        
+        // subscribing to the store using a selector, its a hook named as useSelector
+        // it will get the access to the our store.
+        const cartItems = useSelector((store) => {
+            return store.cart.items;
+        });
 
         // useContext is a hook coming from the react.
         // {loggedinUser} is object destructing.
@@ -26,8 +33,8 @@ import UserContext from "../Utils/UserContext";
                         <li className="px-4"><Link to="/">Home</Link></li>
                         <li className="px-4"><Link to="contact">Contact Us</Link></li>
                         <li className="px-4"><Link to="about">About Us</Link></li>
-                        <li className="px-4"><Link to="grocery">Grocery</Link></li>
-                        <li className="px-4">Cart</li>
+                        <li className="px-4 "><Link to="grocery">Grocery</Link></li>
+                        <li className="px-4 font-bold"><Link to="cart">Cart ({cartItems.length} items)</Link></li>
                         <button className="login-button" onClick={ () => {
                             (btnvalue == 'Login') ? setbtnvalue("Logout") : setbtnvalue("Login");
                         }}>{btnvalue}</button>
