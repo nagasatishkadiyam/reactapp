@@ -4,10 +4,12 @@ import ItemList from "./ItemList";
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
 
     // uncontrollered state.
-    // const [showItems, setshowItems] = useState(false);
+    const [togglrItems, settogglrItems] = useState(false);
     handelClick = () => {
-        // setshowItems(!showItems);
+        // child level controll
+        settogglrItems(!togglrItems);
 
+        // parent level controll
         // we can controllered state from the parent.
         setShowIndex();
     }
@@ -19,8 +21,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
                     <span className="font-bold">{data.title} ( {data.itemCards.length})</span> 
                     <span>{data.itemCards.length}</span>
                 </div>
-                {showItems &&  <ItemList items={data.itemCards} />}
-                  
+                {showItems && togglrItems &&  <ItemList items={data.itemCards} />}
             </div>
         </div>
     );
