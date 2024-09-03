@@ -2,9 +2,12 @@ import Shimmer from "./Shimmer";
 import { IMG_URL } from "../Utils/constants";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../Utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const ResetaurantMenu = () => {
     const {restid} = useParams();
+    const [showIndex, setShowIndex] = useState(0);
 
     // Custom hook to fetch the data and return to component.
     restInfo = useRestaurantMenu(restid);
@@ -33,18 +36,21 @@ const ResetaurantMenu = () => {
 
     const {itemCards} = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
+    // console.log(restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+    const categories = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory');
+    // console.log(categories);
     return (
         <div className="text-center">
             <div className="">
-                <h1 className="font-bold my-2">{name}</h1>
+                <h1 className="font-bold my-2 text-2xl">{name}</h1>
                 <p className="font-semibold text-lg">{avgRatingString   + ' ' + '(' + totalRatingsString + ')'  +  '  ' + costForTwoMessage }</p>
                 <p>{ cuisines.join(", ") }</p>
                 <div>
                     <p>Outlet : {areaName}</p> 
                 </div>
             </div>
-
-            <ul className="">
+ 
+            {/* <ul className="">
                 {
                     itemCards?.map((itemCard) => {
                         return (
@@ -61,7 +67,13 @@ const ResetaurantMenu = () => {
                         );
                     })
                 }
-            </ul>
+            </ul> */}
+            
+            {
+                categories?.map((category, index) => {
+                    return (<RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} showItems={index === showIndex ? true: false } setShowIndex={() => setShowIndex(index)}></RestaurantCategory>);
+                })
+            }
         </div>
     );
 }

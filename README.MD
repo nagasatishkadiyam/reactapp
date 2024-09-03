@@ -90,6 +90,10 @@
 
     - higher order components:
       - higher order component is a function it takes a componet as an input and enhance it and return the enhanced component.
+
+    - Lifting up the state.
+      - Controling the child components state varibale from the parent coponent. 
+      - Example accordian implemented.
       
     
 

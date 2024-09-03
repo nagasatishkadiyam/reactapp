@@ -21,11 +21,11 @@ class About extends React.Component {
 
     constructor(props){
         super(props);
-        console.log('parent const');
+        // console.log('parent const');
     }
 
     componentDidMount() {
-        console.log('parent component did mount');
+        // console.log('parent component did mount');
     }
 
     render(){
