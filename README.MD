@@ -143,22 +143,26 @@
   - end to end testing (testing the entire flow from landing page => login => adding items to cart => payment => logout) its required selinium and others
    
    # setting up testing in our app.
-    - react testign library.
-    - installed jest
-    - installed Babel dependencies.
+    - react testign library. (npm i -D @testing-library/react)
+    - installed jest (npm i -D jest)
+    - installed Babel dependencies. (npm install --save-dev babel-jest @babel/core @babel/preset-env)
     - configure Bebel .
     - configure parcel config file to disable the default  bable transapilation.
     - jest configuration using command (npx jext --init) 
     - npx jest --init
-# The following questions will help Jest to create a suitable configuration for your project
+    # The following questions will help Jest to create a suitable configuration for your project
 
-- ✔ Would you like to use Typescript for the configuration file? … no
-- ✔ Choose the test environment that will be used for testing › jsdom (browser-like)
-- ✔ Do you want Jest to add coverage reports? … yes
-- ✔ Which provider should be used to instrument code for coverage? › babel
-- ✔ Automatically clear mock calls, instances, contexts and results before every test? … yes
+    - ✔ Would you like to use Typescript for the configuration file? … no
+    - ✔ Choose the test environment that will be used for testing › jsdom (browser-like)
+    - ✔ Do you want Jest to add coverage reports? … yes
+    - ✔ Which provider should be used to instrument code for coverage? › babel
+    - ✔ Automatically clear mock calls, instances, contexts and results before every test? … yes
 
-📝  Configuration file created at /home/reactapp/jest.config.js
+    -    📝  Configuration file created at /home/reactapp/jest.config.js
+    - install jsdom Library.
+    - install @babel/preset-react (to make jsx work in the test cases).
+    - include @babel/preset-react inside my babel config.
+    - install @testing-library/jest-dom
 
 
 
