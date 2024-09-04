@@ -133,6 +133,23 @@
        - dispatch
        - selector 
     
+  # Testing
+   - Types of testing by developer
+   - manual testing 
+   - unit testing (testing the each componet)
+   - integration testing (where multiple componets are involved in talking eachother).
+
+  # End to end testing
+  - end to end testing (testing the entire flow from landing page => login => adding items to cart => payment => logout) its required selinium and others
+   
+   # setting up testing in our app.
+    - react testign library.
+    - installed jest
+    - installed Babel dependencies.
+    - configure Bebel .
+    - configure parcel config file to disable the default  bable transapilation.
+
+
 
 
 
