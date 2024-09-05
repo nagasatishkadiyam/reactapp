@@ -40,6 +40,7 @@
         );
 
         const json = await data.json();
+        // console.log(json);
 
 
         setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -69,7 +70,7 @@
             <div className="body">
                 <div className="filter flex">
                     <div className="search m-4 p-4">
-                        <input type="text"
+                        <input data-testid="searchbox" type="text"
                          value={searchText} 
                         className="border border-solid border-gray m-4"
                             onChange={(e) => {
