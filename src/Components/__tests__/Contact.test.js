@@ -3,6 +3,21 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("contact page test cases", () => {
+
+
+    beforeAll(() => {
+        // console.log("it will call before all");
+    });
+    beforeEach(() => {
+        // console.log("it will call before Each");
+    });
+    afterAll(() => {
+        // console.log("it will call after all");
+    });
+    afterEach(() => {
+        // console.log("it will call after each");
+    });
+
     test("Should load contact us page", () => {
         render(<Contact />);
     

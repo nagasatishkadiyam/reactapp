@@ -10,7 +10,7 @@ const ResetaurantMenu = () => {
     const [showIndex, setShowIndex] = useState(0);
 
     // Custom hook to fetch the data and return to component.
-    restInfo = useRestaurantMenu(restid);
+    const restInfo = useRestaurantMenu(restid);
 
     // converting as a custom hook(useResetaurantMenu)
     /*
