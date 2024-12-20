@@ -18,7 +18,7 @@
 # here 2 types of import/export availabe.
 - 1. default export /import.  ( if file contains single componenet/varible better to use default export/import)
     - Example
-    - default export Componentname/variablename;
+    - export default Componentname/variablename;
     - import Componentname/variablename from "path".
 
 - 2. named export/import.
@@ -37,14 +37,15 @@
         - do not add usestate inside the for loop or any conditions. 
 
       - useEffect()  
-        - If no dependecy array useeffect will call on every render.
+        - If no dependency array useeffect will call on every render.
         - If dependency array is empty,then useeffect will call on only initial render (just once).
+
       - useParams() is used to get the query parameters from the url.
         - useParams() is exported from react-router-dom.
 
       - If any function starts with use keyword then its a hook.
 
-- React uses reconcilation althogrithem also known as react fiber.
+- React uses reconcilation althogrithem also known as reactfiber.
 - virtual dom means representation of actual dom.
 - react is fast becuase of rect fiber which means reconcilation algorithem will find out the   difference between the old dom object and new dom object then update the updated part only.
 
@@ -56,11 +57,11 @@
 
 # Routing.
   - 2 types of routing availabel in web apps
-    - client side Routing(single page application)(client side routing won't do http request because its already loaded as single page)
-    - server side Routing(every request will go the server with http and get back to the browser)
+    - client side Routing (single page application)(client side routing won't do http request because its already loaded as single page)
+    - server side Routing (every request will go the server with http and get back to the browser)
+
 - functional component 
   - functional component is nothing but a javascript fucntion which return the jsx.
-
 - Class component 
   - class component is nothing but a javascript class which extends React.Component and it has  a render method which returns the jsx.
   - class component constructor will execute first ===> then render will execute then ==> componentdidmount will execute.
@@ -96,8 +97,8 @@
       - Example accordian implemented.
 
     # Props drilling.
-     - sendign the data from one parent component to its child componets is called props drilling.
-     - componetA is sending the data as the props CoponentB also sending the data to ComponentC  ComponetC is using the data.
+     - sending the data from one parent component to its child componets is called props drilling.
+     - componet A is sending the data as the props Coponent B also sending the data to Component C  Componet C is using the data.
      - this is called props drilling.
 
      # React context.
