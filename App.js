@@ -2,7 +2,7 @@
 /**
  * Parcel functionalities.
  * HMR - Hot module reloading (it will refresh the page automatically).
- * File water algorithm (based on File water algorithm Hot module reloading is happening).
+ * File water algorithm (based on File watcher algorithm Hot module reloading is happening).
  * Building.
  * Minifying.
  * Dev and production build.
@@ -54,7 +54,7 @@ const Grocery = lazy(() => import("./src/Components/Grocery"));
 
 
 
-// React element is nothing but javascript object
+// React element is nothing but a javascript object
 // React.createElement => React Element - js object => html(dom)
 
 const heading = React.createElement(
@@ -161,7 +161,7 @@ const heading = React.createElement(
     // JSX - is HTML or XML like syntax.
     // JS engine can understand only javascript, it doesn't understand the jsx.
     // how JS engine is understaning the JSX? (jsx transpiled before it reaches to the js engine) 
-    // PARCLE has the BABEL , so BABEL is doing the conveWrtion.
+    // PARCLE has the BABEL , so BABEL is doing the convertion.
 
     // JSX example
     //single line JSX.
@@ -182,7 +182,7 @@ const heading = React.createElement(
     // React Component (everything is a component in react)
     // 1. Functional Component.
     // 2. Class Component.
-    // Functional component is normal java script arrow function, which return a jsx or react element.
+    // Functional component is normal java script arrow function, which returns a jsx or react element.
     // functional component name starts with capital letter.(not mandatory but its good practice).
     // we have to render the React component using following syntax <ComponentName /> <Heading />
     
@@ -194,10 +194,10 @@ const heading = React.createElement(
     // const root = ReactDOM.createRoot(document.getElementById("root"));
     // root.render(<Heading />);
 
-    // functional componet without retun statement.
+    // functional componet without return statement.
     const HeaderWithoutReturn = () => (
     <h1>
-        Function component without return statement
+        Functional component without return statement
     </h1>
     );
     
@@ -227,7 +227,7 @@ const heading = React.createElement(
     // we can print javascript variable like {number} and even console.log() also as {console.log()}.
     // jsx will sanitize the javascipt inside the {}.
     // if {} contains the malicious code, jsx will escape it.
-    // we can the react componet inside the {}  as like this {ChildComponent()} 
+    // we can write the react componet inside the {}  as like this {ChildComponent()} 
 
      const element = (<div> 
         {2 + 10}

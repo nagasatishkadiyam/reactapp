@@ -19,6 +19,7 @@
         const [listOfRestaurant, setListOfRestaurant] = useState([]);
         const [filteredrestRestaurant, setFilteredrestRestaurant] = useState([]);
         const [searchText, setSearchText] = useState("");
+        
         //calling higherorder function.
         const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
